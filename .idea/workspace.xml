@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4281bb3-a167-41b9-a904-cb605c1e58b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parser/Main.class" afterPath="$PROJECT_DIR$/out/production/Parser/Main.class" />
+      <change beforePath="$PROJECT_DIR$/output.png" afterPath="$PROJECT_DIR$/output.png" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,6 +17,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="output.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/output.png">
           <provider selected="true" editor-type-id="images">
@@ -22,37 +34,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Object.java" pinned="false" current-in-tab="true">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
+      <file leaf-file-name="Node.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/Node.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+            <state relative-caret-position="111">
+              <caret line="49" column="24" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+              <folding>
+                <element signature="e#1247#1248#0" expanded="true" />
+                <element signature="e#1279#1280#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FieldDeclaration.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/body/FieldDeclaration.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="e#1955#1956#0" expanded="true" />
+                <element signature="e#1992#1993#0" expanded="true" />
+                <element signature="e#2021#2022#0" expanded="true" />
+                <element signature="e#2053#2054#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BodyDeclaration.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/body/BodyDeclaration.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JavaParser.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/JavaParser.class">
+      <file leaf-file-name="uml-parser-test1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-1/uml-parser-test1.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SourceStringReader.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Downloads/plantuml.jar!/net/sourceforge/plantuml/SourceStringReader.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+            <state relative-caret-position="187">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
-                <marker date="1382797466000" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1382797466000" expanded="false" signature="135:577" ph="..." />
-                <marker date="1382797466000" expanded="true" signature="721:728" ph="{}" />
-                <marker date="1382797466000" expanded="true" signature="783:879" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="976:1318" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="1398:1458" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="1563:1800" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="1888:1943" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="2022:2087" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="2173:2339" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="2424:2585" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="2683:2864" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="2952:3110" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="3202:3366" ph="{...}" />
-                <marker date="1382797466000" expanded="true" signature="3458:3632" ph="{...}" />
+                <element signature="e#1025#1026#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,6 +96,28 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/StringBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="e#2871#2872#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractStringBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/AbstractStringBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="447" column="0" lean-forward="false" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -132,6 +187,19 @@
               <item name="out" type="462c0819:PsiDirectoryNode" />
               <item name="production" type="462c0819:PsiDirectoryNode" />
               <item name="Parser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Parser" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Parser" type="462c0819:PsiDirectoryNode" />
+              <item name="uml-parser-test-1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Parser" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Parser" type="b2602c69:ProjectViewProjectNode" />
@@ -238,9 +306,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3338816" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.74013156" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2713816" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25113463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -263,7 +331,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -272,9 +340,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -290,23 +356,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <marker date="1382797466000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1382797466000" expanded="false" signature="135:577" ph="..." />
-            <marker date="1382797466000" expanded="true" signature="721:728" ph="{}" />
-            <marker date="1382797466000" expanded="true" signature="783:879" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="976:1318" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1398:1458" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1563:1800" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1888:1943" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2022:2087" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2173:2339" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2424:2585" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2683:2864" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2952:3110" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3202:3366" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3458:3632" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -322,9 +372,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -340,23 +388,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <marker date="1382797466000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1382797466000" expanded="false" signature="135:577" ph="..." />
-            <marker date="1382797466000" expanded="true" signature="721:728" ph="{}" />
-            <marker date="1382797466000" expanded="true" signature="783:879" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="976:1318" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1398:1458" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1563:1800" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1888:1943" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2022:2087" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2173:2339" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2424:2585" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2683:2864" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2952:3110" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3202:3366" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3458:3632" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -372,9 +404,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -390,23 +420,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <marker date="1382797466000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1382797466000" expanded="false" signature="135:577" ph="..." />
-            <marker date="1382797466000" expanded="true" signature="721:728" ph="{}" />
-            <marker date="1382797466000" expanded="true" signature="783:879" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="976:1318" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1398:1458" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1563:1800" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1888:1943" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2022:2087" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2173:2339" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2424:2585" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2683:2864" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2952:3110" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3202:3366" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3458:3632" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -422,9 +436,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -443,6 +455,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="128" column="2" lean-forward="true" selection-start-line="128" selection-start-column="2" selection-end-line="128" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Parser/Main.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ASTParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="10744" column="0" lean-forward="false" selection-start-line="10744" selection-start-column="0" selection-end-line="10744" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/FileInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="317" column="0" lean-forward="false" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/CompilationUnit.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#1737#1738#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/expr/NameExpr.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#841#842#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/JavaParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/body/TypeDeclaration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#1499#1500#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/plantuml.jar!/net/sourceforge/plantuml/preproc/Defines.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/StringBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="e#2871#2872#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/AbstractStringBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="447" column="0" lean-forward="false" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/plantuml.jar!/net/sourceforge/plantuml/SourceStringReader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#1025#1026#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-1/A.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -451,36 +575,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/JavaParser.class">
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/Node.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+        <state relative-caret-position="111">
+          <caret line="49" column="24" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
           <folding>
-            <marker date="1382797466000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1382797466000" expanded="false" signature="135:577" ph="..." />
-            <marker date="1382797466000" expanded="true" signature="721:728" ph="{}" />
-            <marker date="1382797466000" expanded="true" signature="783:879" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="976:1318" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1398:1458" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1563:1800" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="1888:1943" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2022:2087" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2173:2339" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2424:2585" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2683:2864" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="2952:3110" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3202:3366" ph="{...}" />
-            <marker date="1382797466000" expanded="true" signature="3458:3632" ph="{...}" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1279#1280#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/body/BodyDeclaration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/javaparser-1.0.10.jar/javaparser-1.0.10.jar!/japa/parser/ast/body/FieldDeclaration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1955#1956#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2021#2022#0" expanded="true" />
+            <element signature="e#2053#2054#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -490,10 +612,15 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
+    <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-1/uml-parser-test1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+        <state relative-caret-position="322">
+          <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding />
         </state>
       </provider>
