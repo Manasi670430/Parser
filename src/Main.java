@@ -1,10 +1,12 @@
-import japa.parser.JavaParser;
-import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.body.BodyDeclaration;
-import japa.parser.ast.body.FieldDeclaration;
-import japa.parser.ast.body.MethodDeclaration;
-import japa.parser.ast.body.TypeDeclaration;
-import japa.parser.ast.type.Type;
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.BodyDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.type.ArrayType;
+import com.github.javaparser.ast.type.PrimitiveType;
+import com.github.javaparser.ast.type.Type;
 import net.sourceforge.plantuml.SourceStringReader;
 
 import java.io.File;
@@ -27,12 +29,9 @@ public class Main {
                 //System.out.println(cu.toString());
 
                 b += "class " +cu.getTypes().get(0).getName()+ " { " + "\n" +accessMembers(cu.getTypes().get(0))+ " } "  + "\n";
-                //System.out.println("dadddsdsds" +b );
                 //System.out.println();
-
             }
         }
-
         generateUML(b);
     }
 
@@ -42,20 +41,35 @@ public class Main {
         List<BodyDeclaration> members = td.getMembers();
         for(BodyDeclaration m : members){
             if(m.getClass().equals(FieldDeclaration.class)) {
+
                 FieldDeclaration fd =(FieldDeclaration)m;
-                if(fd.getModifiers()== Modifier.PUBLIC){
-                    am += "+ " ;
-                }
-                else if(fd.getModifiers()== Modifier.PRIVATE){
-                    am += "- " ;
-                }
-                else if(fd.getModifiers()== Modifier.PROTECTED){
-                    am += "# " ;
+                Type t = fd.getVariables().get(0).getType();
+                //Type t = fd.getElementType() // int[] / int;
+
+                //type-->reftype-->Arraytrype
+
+
+                if(t.getClass().equals(PrimitiveType.class) || t.getClass().equals(ArrayType.class)) {
+                    if(fd.isPublic()){
+                        am += "+ " ;
+                    }
+                    else if(fd.isPrivate()){
+                        am += "- " ;
+                    }
+                    else if(fd.isProtected()){
+                        am += "# " ;
+                    }
+
+                    am += fd.getVariables().get(0).toString()  ;
+                    am+=" : " + fd.getElementType().toString();
+                    if(t.getClass().equals(ArrayType.class)) {
+                        am += "[]";
+                    }
+                    am += "\n";
+                } else {
+
                 }
 
-                am += fd.getVariables().get(0).toString()  ;
-
-                am+=" : " + fd.getType().toString() + "\n";
             } else if(m.getClass().equals(MethodDeclaration.class)){
 
             }
@@ -70,7 +84,7 @@ public class Main {
         OutputStream png = new FileOutputStream("output.png");
 
         //System.out.println(b);
-
+//
         String source = "@startuml\n";
         source += b;
         source += "@enduml\n";
@@ -81,15 +95,15 @@ public class Main {
 //                "-x\n" +
 //                "-y\n" +
 //                "}\n" +
+//
+//                "C --> \"1\" A \n" +
 //                "class B {\n" +
 //                "}\n" +
 //                "class C {\n" +
 //                "}\n" +
-//                "class D {\n" +
-//                "}\n" +
 //                "@enduml";
-
-        //System.out.println(b);
+//
+//        System.out.println(b);
 
 
 //        String source = "@startuml\n";
