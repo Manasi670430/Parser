@@ -3,8 +3,27 @@ import java.util.*;
 public class Edge {
 
     private TreeSet<String> vertices;
+    private String srcCardnality;
+    private String destCardnality;
+
+    public String getSrcCardnality() {
+        return srcCardnality;
+    }
+
+    public void setSrcCardnality(String srcCardnality) {
+        this.srcCardnality = srcCardnality;
+    }
+
+    public String getDestCardnality() {
+        return destCardnality;
+    }
+
+    public void setDestCardnality(String destCardnality) {
+        this.destCardnality = destCardnality;
+    }
 
     public Edge() {
+
         this.vertices = new TreeSet<String>();
     }
 

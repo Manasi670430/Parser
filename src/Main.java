@@ -1,10 +1,8 @@
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.body.BodyDeclaration;
-import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.body.*;
 import com.github.javaparser.ast.type.ArrayType;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.PrimitiveType;
 import com.github.javaparser.ast.type.Type;
 import net.sourceforge.plantuml.SourceStringReader;
@@ -71,7 +69,17 @@ public class Main {
                         Edge e = new Edge();
                         e.addVertex(t.getElementType().asString());
                         e.addVertex(td.getName().asString());
-
+                        e.setSrcCardnality("1");
+                        e.setDestCardnality("1");
+                        if(!hashSet.contains(e))
+                            hashSet.add(e);
+                    }
+                    else{
+                        Edge e = new Edge();
+                        e.addVertex(((ClassOrInterfaceType)t.getElementType().getChildNodes().get(1)).getName().asString());
+                        e.addVertex(td.getName().asString());
+                        e.setSrcCardnality("1");
+                        e.setDestCardnality("*");
                         if(!hashSet.contains(e))
                             hashSet.add(e);
                     }
@@ -94,7 +102,7 @@ public class Main {
         String source = "@startuml\n";
         source += b;
         for (Edge e : hashSet) {
-            source +=  e.getVertices().toArray()[0] + "--" + e.getVertices().toArray()[1] + "\n" ;
+            source +=  e.getVertices().toArray()[0] +" \""+ e.getSrcCardnality() + "\" -- \"" + e.getDestCardnality() + "\" "+ e.getVertices().toArray()[1] + "\n" ;
         }
         source += "@enduml\n";
         System.out.println(source);
