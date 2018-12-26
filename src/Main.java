@@ -19,7 +19,9 @@ import java.util.List;
 public class Main {
 
     //Hashset is required to avoid duplicate edges for instance: A--C & C--A should be same
-    static HashSet<Edge> hashSet = new HashSet<Edge>();
+    static HashSet<Edge> hashSetAttributes = new HashSet<Edge>();
+    static HashSet<CommonEdge> hashSetImplements = new HashSet<CommonEdge>();
+    static HashSet<CommonEdge> hashSetExtends = new HashSet<CommonEdge>();
 
 
     public static void main(String[] args) throws Exception {
@@ -33,6 +35,21 @@ public class Main {
                 CompilationUnit cu = JavaParser.parse(F);
                 ClassOrInterfaceDeclaration cd = (ClassOrInterfaceDeclaration)cu.getTypes().get(0);
                 if(!cd.isInterface()) {
+                    for(ClassOrInterfaceType c: cd.getImplementedTypes()){
+                     System.out.println(cu.getTypes().get(0).getName() +" Implements " +c.getName());
+                        CommonEdge e = new CommonEdge(cu.getTypes().get(0).getName().asString(),c.getName().asString());
+                        if (!hashSetImplements.contains(e))
+                            hashSetImplements.add(e);
+                    }
+
+                    for(ClassOrInterfaceType c: cd.getExtendedTypes()){
+                        System.out.println(cu.getTypes().get(0).getName() +" extends " +c.getName());
+                        CommonEdge e = new CommonEdge(cu.getTypes().get(0).getName().asString(),c.getName().asString());
+                        if (!hashSetExtends.contains(e))
+                            hashSetExtends.add(e);
+                    }
+
+
                     b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
                 }
                 else{
@@ -84,16 +101,16 @@ public class Main {
                         e.addVertex(td.getName().asString());
                         e.setSrcCardnality("1");
                         e.setDestCardnality("1");
-                        if (!hashSet.contains(e))
-                            hashSet.add(e);
+                        if (!hashSetAttributes.contains(e))
+                            hashSetAttributes.add(e);
                     } else {
                         Edge e = new Edge();
                         e.addVertex(((ClassOrInterfaceType) t.getElementType().getChildNodes().get(1)).getName().asString());
                         e.addVertex(td.getName().asString());
                         e.setSrcCardnality("1");
                         e.setDestCardnality("*");
-                        if (!hashSet.contains(e))
-                            hashSet.add(e);
+                        if (!hashSetAttributes.contains(e))
+                            hashSetAttributes.add(e);
                     }
                 }
             }
@@ -109,9 +126,16 @@ public class Main {
         //
         String source = "@startuml\n";
         source += b;
-        for (Edge e : hashSet) {
+        for (Edge e : hashSetAttributes) {
             source += e.getVertices().toArray()[0] + " \"" + e.getSrcCardnality() + "\" -- \"" + e.getDestCardnality() + "\" " + e.getVertices().toArray()[1] + "\n";
         }
+        for (CommonEdge e : hashSetImplements) {
+            source += e.getSource()  + " ..|> " + e.getDestination() + "\n";
+        }
+        for (CommonEdge e : hashSetExtends) {
+            source += e.getSource()  + " --|> " + e.getDestination() + "\n";
+        }
+
         source += "@enduml\n";
         System.out.println(source);
 
