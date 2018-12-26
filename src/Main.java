@@ -1,6 +1,7 @@
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.BodyDeclaration;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.type.ArrayType;
@@ -22,7 +23,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        File file = new File(".\\out\\production\\Parser\\uml-parser-test-1");
+        File file = new File(".\\out\\production\\Parser\\uml-parser-test-2");
 
         File a[] = file.listFiles();
         String b = "";
@@ -30,8 +31,14 @@ public class Main {
         for (File F : a) {
             if (F.getName().endsWith(".java")) {
                 CompilationUnit cu = JavaParser.parse(F);
+                ClassOrInterfaceDeclaration cd = (ClassOrInterfaceDeclaration)cu.getTypes().get(0);
+                if(!cd.isInterface()) {
+                    b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
+                }
+                else{
+                    b += "interface " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
 
-                b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
+                }
             }
         }
         generateUML(b);
