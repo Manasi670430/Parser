@@ -1,6 +1,8 @@
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.body.*;
+import com.github.javaparser.ast.body.BodyDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.type.ArrayType;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.PrimitiveType;
@@ -10,13 +12,12 @@ import net.sourceforge.plantuml.SourceStringReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
 public class Main {
 
-    static String x = "";
+    //Hashset is required to avoid duplicate edges for instance: A--C & C--A should be same
     static HashSet<Edge> hashSet = new HashSet<Edge>();
 
 
@@ -28,12 +29,9 @@ public class Main {
 
         for (File F : a) {
             if (F.getName().endsWith(".java")) {
-                //System.out.println(F.getCanonicalPath());
                 CompilationUnit cu = JavaParser.parse(F);
-                //System.out.println(cu.toString());
 
                 b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
-                //System.out.println();
             }
         }
         generateUML(b);
@@ -48,7 +46,8 @@ public class Main {
 
                 FieldDeclaration fd = (FieldDeclaration) m;
                 Type t = fd.getVariables().get(0).getType();
-                //Type t = fd.getElementType() // int[] / int;
+                //Type t = fd.getElementType()  int[]-- int Does Wrapping of array hence changed the jar
+
                 if (t.getClass().equals(PrimitiveType.class) || t.getClass().equals(ArrayType.class)) {
                     if (fd.isPublic()) {
                         am += "+ ";
@@ -58,36 +57,38 @@ public class Main {
                         am += "# ";
                     }
 
+                    //Used to Parse the variable names
                     am += fd.getVariables().get(0).toString();
+
+                    //Used to Parse the datatypes
                     am += " : " + fd.getElementType().toString();
+
+                    //Used to Parse the variable names
                     if (t.getClass().equals(ArrayType.class)) {
                         am += "[]";
                     }
+
                     am += "\n";
                 } else {
+                    //Used to remove Collection Keyword from the class variables
                     if (!t.getElementType().asString().contains("Collection")) {
                         Edge e = new Edge();
                         e.addVertex(t.getElementType().asString());
                         e.addVertex(td.getName().asString());
                         e.setSrcCardnality("1");
                         e.setDestCardnality("1");
-                        if(!hashSet.contains(e))
+                        if (!hashSet.contains(e))
                             hashSet.add(e);
-                    }
-                    else{
+                    } else {
                         Edge e = new Edge();
-                        e.addVertex(((ClassOrInterfaceType)t.getElementType().getChildNodes().get(1)).getName().asString());
+                        e.addVertex(((ClassOrInterfaceType) t.getElementType().getChildNodes().get(1)).getName().asString());
                         e.addVertex(td.getName().asString());
                         e.setSrcCardnality("1");
                         e.setDestCardnality("*");
-                        if(!hashSet.contains(e))
+                        if (!hashSet.contains(e))
                             hashSet.add(e);
                     }
                 }
-
-
-                //String s="";
-
             }
         }
         return am;
@@ -102,7 +103,7 @@ public class Main {
         String source = "@startuml\n";
         source += b;
         for (Edge e : hashSet) {
-            source +=  e.getVertices().toArray()[0] +" \""+ e.getSrcCardnality() + "\" -- \"" + e.getDestCardnality() + "\" "+ e.getVertices().toArray()[1] + "\n" ;
+            source += e.getVertices().toArray()[0] + " \"" + e.getSrcCardnality() + "\" -- \"" + e.getDestCardnality() + "\" " + e.getVertices().toArray()[1] + "\n";
         }
         source += "@enduml\n";
         System.out.println(source);
