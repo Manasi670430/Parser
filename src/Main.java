@@ -1,9 +1,6 @@
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.body.BodyDeclaration;
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.body.*;
 import com.github.javaparser.ast.type.ArrayType;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.PrimitiveType;
@@ -22,6 +19,7 @@ public class Main {
     static HashSet<Edge> hashSetAttributes = new HashSet<Edge>();
     static HashSet<CommonEdge> hashSetImplements = new HashSet<CommonEdge>();
     static HashSet<CommonEdge> hashSetExtends = new HashSet<CommonEdge>();
+    static HashSet<CommonEdge> hashSetParameters = new HashSet<CommonEdge>();
 
 
     public static void main(String[] args) throws Exception {
@@ -113,6 +111,17 @@ public class Main {
                             hashSetAttributes.add(e);
                     }
                 }
+            }else if(m.getClass().equals(MethodDeclaration.class)){
+                MethodDeclaration md = (MethodDeclaration) m;
+
+                Type t = md.getParameters().get(0).getType();
+
+                for(Parameter p: md.getParameters()){
+
+                    CommonEdge e = new CommonEdge(td.getName().asString(),p.getType().asString());
+                    if (!hashSetParameters.contains(e))
+                        hashSetParameters.add(e);
+                }
             }
         }
         return am;
@@ -135,6 +144,10 @@ public class Main {
         for (CommonEdge e : hashSetExtends) {
             source += e.getSource()  + " --|> " + e.getDestination() + "\n";
         }
+        for (CommonEdge e : hashSetParameters) {
+            source += e.getSource() +" " +"\"uses\"" +" " + " ..> " + e.getDestination() + "\n";
+        }
+
 
         source += "@enduml\n";
         System.out.println(source);

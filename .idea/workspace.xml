@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4281bb3-a167-41b9-a904-cb605c1e58b3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/CommonEdge.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Parser/Main.class" afterPath="$PROJECT_DIR$/out/production/Parser/Main.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Parser/output.png" afterPath="$PROJECT_DIR$/out/production/Parser/output.png" />
       <change beforePath="$PROJECT_DIR$/output.png" afterPath="$PROJECT_DIR$/output.png" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
@@ -22,13 +20,14 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="135" column="45" lean-forward="false" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+            <state relative-caret-position="233">
+              <caret line="147" column="65" lean-forward="true" selection-start-line="147" selection-start-column="65" selection-end-line="147" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#885#891#0" expanded="true" />
-                <element signature="e#957#969#0" expanded="true" />
-                <element signature="e#1032#1044#0" expanded="true" />
+                <element signature="e#693#699#0" expanded="true" />
+                <element signature="e#765#777#0" expanded="true" />
+                <element signature="e#840#852#0" expanded="true" />
+                <element signature="e#918#930#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,6 +101,16 @@
       <file leaf-file-name="C1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/C1.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/C2.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -141,6 +150,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>import com\.github\.javaparser\.JavaParser\;\n        import com\.github\.javaparser\.ast\.CompilationUnit\;\n        import com\.github\.javaparser\.ast\.body\.BodyDeclaration\;\n        import com\.github\.javaparser\.ast\.body\.FieldDeclaration\;\n        import com\.github\.javaparser\.ast\.body\.MethodDeclaration\;\n        import com\.github\.javaparser\.ast\.body\.TypeDeclaration\;\n        import com\.github\.javaparser\.ast\.type\.ArrayType\;\n        import com\.github\.javaparser\.ast\.type\.PrimitiveType\;\n        import com\.github\.javaparser\.ast\.type\.Type\;\n        import net\.sourceforge\.plantuml\.SourceStringReader\;\n    \n        import java\.io\.File\;\n        import java\.io\.FileOutputStream\;\n        import java\.io\.OutputStream\;\n        import java\.util\.List\;\n    \n        public class Main \{\n    \n            public static void main\(String\[\] args\) throws Exception \{\n                File file \= new File\(\&quot;\.\\\\out\\\\production\\\\Parser\\\\uml\-parser\-test\-1\&quot;\)\;\n    \n                File a\[\] \= file\.listFiles\(\)\;\n                String b\=\&quot;\&quot;\;\n                for \(File F \: a\) \{\n                    if \(F\.getName\(\)\.endsWith\(\&quot;\.java\&quot;\)\) \{\n                        \/\/System\.out\.println\(F\.getCanonicalPath\(\)\)\;\n                        CompilationUnit cu \= JavaParser\.parse\(F\)\;\n                        \/\/System\.out\.println\(cu\.toString\(\)\)\;\n    \n                        b \+\= \&quot;class \&quot; \+cu\.getTypes\(\)\.get\(0\)\.getName\(\)\+ \&quot; \{ \&quot; \+ \&quot;\\n\&quot; \+accessMembers\(cu\.getTypes\(\)\.get\(0\)\)\+ \&quot; \} \&quot;  \+ \&quot;\\n\&quot;\;\n                        \/\/System\.out\.println\(\)\;\n                    \}\n                \}\n                generateUML\(b\)\;\n            \}\n    \n    \n            private static String accessMembers\(TypeDeclaration td\)\{\n                String am\=\&quot;\&quot;\;\n                List\&lt;BodyDeclaration\&gt; members \= td\.getMembers\(\)\;\n                for\(BodyDeclaration m \: members\)\{\n                    if\(m\.getClass\(\)\.equals\(FieldDeclaration\.class\)\) \{\n    \n                        FieldDeclaration fd \=\(FieldDeclaration\)m\;\n                        Type t \= fd\.getVariables\(\)\.get\(0\)\.getType\(\)\;\n                        \/\/Type t \= fd\.getElementType\(\) \/\/ int\[\] \/ int\;\n    \n                        \/\/type\-\-\&gt;reftype\-\-\&gt;Arraytrype\n    \n    \n                        if\(t\.getClass\(\)\.equals\(PrimitiveType\.class\) \|\| t\.getClass\(\)\.equals\(ArrayType\.class\)\) \{\n                            if\(fd\.isPublic\(\)\)\{\n                                am \+\= \&quot;\+ \&quot; \;\n                            \}\n                            else if\(fd\.isPrivate\(\)\)\{\n                                am \+\= \&quot;\- \&quot; \;\n                            \}\n                            else if\(fd\.isProtected\(\)\)\{\n                                am \+\= \&quot;\# \&quot; \;\n                            \}\n    \n                            am \+\= fd\.getVariables\(\)\.get\(0\)\.toString\(\)  \;\n                            am\+\=\&quot; \: \&quot; \+ fd\.getElementType\(\)\.toString\(\)\;\n                            if\(t\.getClass\(\)\.equals\(ArrayType\.class\)\) \{\n                                am \+\= \&quot;\[\]\&quot;\;\n                            \}\n                            am \+\= \&quot;\\n\&quot;\;\n                        \} else \{\n    \n                        \}\n    \n                    \} else if\(m\.getClass\(\)\.equals\(MethodDeclaration\.class\)\)\{\n    \n                    \}\n                \}\n    \n                \/\/String s\=\&quot;\&quot;\;\n                return am\;\n            \}\n    \n    \n            private static void generateUML\(String b\) throws Exception \{\n                OutputStream png \= new FileOutputStream\(\&quot;output\.png\&quot;\)\;\n    \n                \/\/System\.out\.println\(b\)\;\n        \/\/\n                String source \= \&quot;\@startuml\\n\&quot;\;\n                source \+\= b\;\n                source \+\= \&quot;\@enduml\\n\&quot;\;\n                System\.out\.println\(source\)\;\n    \n        \/\/        b\=\&quot;\@startuml\\n\&quot; \+\n        \/\/                \&quot;class A \{\\n\&quot; \+\n        \/\/                \&quot;\-x\\n\&quot; \+\n        \/\/                \&quot;\-y\\n\&quot; \+\n        \/\/                \&quot;\}\\n\&quot; \+\n        \/\/\n        \/\/                \&quot;C \-\-\&gt; \\\&quot;1\\\&quot; A \\n\&quot; \+\n        \/\/                \&quot;class B \{\\n\&quot; \+\n        \/\/                \&quot;\}\\n\&quot; \+\n        \/\/                \&quot;class C \{\\n\&quot; \+\n        \/\/                \&quot;\}\\n\&quot; \+\n        \/\/                \&quot;\@enduml\&quot;\;\n        \/\/\n        \/\/        System\.out\.println\(b\)\;\n    \n    \n        \/\/        String source \= \&quot;\@startuml\\n\&quot;\;\n        \/\/        source \+\= \&quot;class ClassA \{\\n\&quot; \+\n        \/\/            source \+\=   \&quot;\\tint id\\n \&quot; \+\n        \/\/            source \+\=    \&quot;\}\\n\&quot; \+\n        \/\/        source \+\= \&quot;\@enduml\\n\&quot;\;\n    \n    \n                \/\/        String source \= \&quot;\@startuml\\n\&quot;\;\n        \/\/        source \+\= \&quot;Bob \-\&gt; Alice \: hello\\n\&quot;\;\n        \/\/        source \+\= \&quot;\@enduml\\n\&quot;\;\n    \n        \/\/        String source \= \&quot;\@startuml\\n\&quot;\;\n        \/\/        source \+\= \&quot;class ClassA \{\\n\&quot; \+\n        \/\/                \&quot;\\tint id\\n \&quot; \+\n        \/\/                \&quot;\}\\n\&quot;\;\n        \/\/        source \+\= \&quot;ClassA \-\- ClassC\\n\&quot;\;\n        \/\/        source \+\= \&quot;ClassA \-\- \\\&quot;\*\\\&quot; ClassB\\n\&quot;\;\n        \/\/        source \+\= \&quot;ClassA \-\- \\\&quot;\*\\\&quot; ClassD\\n\&quot;\;\n        \/\/        source \+\= \&quot;\@enduml\\n\&quot;\;\n    \n                           \/\/     source \+\=   \&quot;\@enduml\&quot;\;\*\/\n    \n                SourceStringReader reader \= new SourceStringReader\(source\)\;\n                \/\/ Write the first image to \&quot;png\&quot;\n                String desc \= reader\.outputImage\(png\)\.getDescription\(\)\;\n            \}\n        \}\n</find>
+      <find>CommonEdge</find>
+      <find>Common</find>
+      <find>cu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -337,12 +349,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37664473" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35032895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5805921" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1299342" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25113463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.301059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -406,9 +418,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#885#891#0" expanded="true" />
-            <element signature="e#957#969#0" expanded="true" />
-            <element signature="e#1032#1044#0" expanded="true" />
+            <element signature="e#693#699#0" expanded="true" />
+            <element signature="e#765#777#0" expanded="true" />
+            <element signature="e#840#852#0" expanded="true" />
+            <element signature="e#918#930#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -443,9 +456,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#885#891#0" expanded="true" />
-            <element signature="e#957#969#0" expanded="true" />
-            <element signature="e#1032#1044#0" expanded="true" />
+            <element signature="e#693#699#0" expanded="true" />
+            <element signature="e#765#777#0" expanded="true" />
+            <element signature="e#840#852#0" expanded="true" />
+            <element signature="e#918#930#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -480,9 +494,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#885#891#0" expanded="true" />
-            <element signature="e#957#969#0" expanded="true" />
-            <element signature="e#1032#1044#0" expanded="true" />
+            <element signature="e#693#699#0" expanded="true" />
+            <element signature="e#765#777#0" expanded="true" />
+            <element signature="e#840#852#0" expanded="true" />
+            <element signature="e#918#930#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -831,14 +846,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/C2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/A2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -919,11 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Parser/output.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -934,12 +936,25 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/C1.java">
+    <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/C2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/C1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Parser/output.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/Parser/uml-parser-test-2/uml-parser-test2.png">
@@ -949,13 +964,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="135" column="45" lean-forward="false" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+        <state relative-caret-position="233">
+          <caret line="147" column="65" lean-forward="true" selection-start-line="147" selection-start-column="65" selection-end-line="147" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#885#891#0" expanded="true" />
-            <element signature="e#957#969#0" expanded="true" />
-            <element signature="e#1032#1044#0" expanded="true" />
+            <element signature="e#693#699#0" expanded="true" />
+            <element signature="e#765#777#0" expanded="true" />
+            <element signature="e#840#852#0" expanded="true" />
+            <element signature="e#918#930#0" expanded="true" />
           </folding>
         </state>
       </provider>
