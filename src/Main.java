@@ -31,26 +31,25 @@ public class Main {
         for (File F : a) {
             if (F.getName().endsWith(".java")) {
                 CompilationUnit cu = JavaParser.parse(F);
-                ClassOrInterfaceDeclaration cd = (ClassOrInterfaceDeclaration)cu.getTypes().get(0);
-                if(!cd.isInterface()) {
-                    for(ClassOrInterfaceType c: cd.getImplementedTypes()){
-                     System.out.println(cu.getTypes().get(0).getName() +" Implements " +c.getName());
-                        CommonEdge e = new CommonEdge(cu.getTypes().get(0).getName().asString(),c.getName().asString());
+                ClassOrInterfaceDeclaration cd = (ClassOrInterfaceDeclaration) cu.getTypes().get(0);
+                if (!cd.isInterface()) {
+                    for (ClassOrInterfaceType c : cd.getImplementedTypes()) {
+                        System.out.println(cu.getTypes().get(0).getName() + " Implements " + c.getName());
+                        CommonEdge e = new CommonEdge(cu.getTypes().get(0).getName().asString(), c.getName().asString());
                         if (!hashSetImplements.contains(e))
                             hashSetImplements.add(e);
                     }
 
-                    for(ClassOrInterfaceType c: cd.getExtendedTypes()){
-                        System.out.println(cu.getTypes().get(0).getName() +" extends " +c.getName());
-                        CommonEdge e = new CommonEdge(cu.getTypes().get(0).getName().asString(),c.getName().asString());
+                    for (ClassOrInterfaceType c : cd.getExtendedTypes()) {
+                        System.out.println(cu.getTypes().get(0).getName() + " extends " + c.getName());
+                        CommonEdge e = new CommonEdge(cu.getTypes().get(0).getName().asString(), c.getName().asString());
                         if (!hashSetExtends.contains(e))
                             hashSetExtends.add(e);
                     }
 
 
                     b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
-                }
-                else{
+                } else {
                     b += "interface " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
 
                 }
@@ -111,14 +110,14 @@ public class Main {
                             hashSetAttributes.add(e);
                     }
                 }
-            }else if(m.getClass().equals(MethodDeclaration.class)){
+            } else if (m.getClass().equals(MethodDeclaration.class)) {
                 MethodDeclaration md = (MethodDeclaration) m;
 
                 Type t = md.getParameters().get(0).getType();
 
-                for(Parameter p: md.getParameters()){
+                for (Parameter p : md.getParameters()) {
 
-                    CommonEdge e = new CommonEdge(td.getName().asString(),p.getType().asString());
+                    CommonEdge e = new CommonEdge(td.getName().asString(), p.getType().asString());
                     if (!hashSetParameters.contains(e))
                         hashSetParameters.add(e);
                 }
@@ -139,13 +138,13 @@ public class Main {
             source += e.getVertices().toArray()[0] + " \"" + e.getSrcCardnality() + "\" -- \"" + e.getDestCardnality() + "\" " + e.getVertices().toArray()[1] + "\n";
         }
         for (CommonEdge e : hashSetImplements) {
-            source += e.getSource()  + " ..|> " + e.getDestination() + "\n";
+            source += e.getSource() + " ..|> " + e.getDestination() + "\n";
         }
         for (CommonEdge e : hashSetExtends) {
-            source += e.getSource()  + " --|> " + e.getDestination() + "\n";
+            source += e.getSource() + " --|> " + e.getDestination() + "\n";
         }
         for (CommonEdge e : hashSetParameters) {
-            source += e.getSource() +" " +"\"uses\"" +" " + " ..> " + e.getDestination() + "\n";
+            source += e.getSource() + " " + "\"uses\"" + " " + " ..> " + e.getDestination() + "\n";
         }
 
 
