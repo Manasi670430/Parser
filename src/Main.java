@@ -23,7 +23,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        File file = new File(".\\out\\production\\Parser\\uml-parser-test-2");
+        File file = new File(".\\out\\production\\Parser\\uml-parser-test-3");
 
         File a[] = file.listFiles();
         String b = "";
@@ -69,30 +69,34 @@ public class Main {
                 Type t = fd.getVariables().get(0).getType();
                 //Type t = fd.getElementType()  int[]-- int Does Wrapping of array hence changed the jar
 
-                if (t.getClass().equals(PrimitiveType.class) || t.getClass().equals(ArrayType.class)) {
-                    if (fd.isPublic()) {
-                        am += "+ ";
-                    } else if (fd.isPrivate()) {
-                        am += "- ";
-                    } else if (fd.isProtected()) {
-                        am += "# ";
+                if ((t.getClass().equals(PrimitiveType.class) || t.getClass().equals(ArrayType.class) ||
+                        ((ClassOrInterfaceType) t).getName().asString().equals("String"))) {
+
+                    if (fd.isPrivate() || fd.isPublic()) {
+                        if (fd.isPublic()) {
+                            am += "+ ";
+                        } else if (fd.isPrivate()) {
+                            am += "- ";
+                        }
+
+                        //Used to Parse the variable names
+                        am += fd.getVariables().get(0).toString();
+
+                        //Used to Parse the datatypes
+                        am += " : " + fd.getElementType().toString();
+
+                        //Used to Parse the variable names
+                        if (t.getClass().equals(ArrayType.class)) {
+                            am += "[]";
+                        }
+
+                        am += "\n";
                     }
 
-                    //Used to Parse the variable names
-                    am += fd.getVariables().get(0).toString();
-
-                    //Used to Parse the datatypes
-                    am += " : " + fd.getElementType().toString();
-
-                    //Used to Parse the variable names
-                    if (t.getClass().equals(ArrayType.class)) {
-                        am += "[]";
-                    }
-
-                    am += "\n";
                 } else {
                     //Used to remove Collection Keyword from the class variables
-                    if (!t.getElementType().asString().contains("Collection")) {
+                    if (!t.getElementType().asString().contains("Collection") &&
+                            !((ClassOrInterfaceType) t).getName().asString().equals("String")) {
                         Edge e = new Edge();
                         e.addVertex(t.getElementType().asString());
                         e.addVertex(td.getName().asString());
@@ -113,13 +117,19 @@ public class Main {
             } else if (m.getClass().equals(MethodDeclaration.class)) {
                 MethodDeclaration md = (MethodDeclaration) m;
 
-                Type t = md.getParameters().get(0).getType();
+                //Type t = md.getParameters().get(0).getType();
 
-                for (Parameter p : md.getParameters()) {
+                if (!md.getParameters().isEmpty()) {
+                    for (Parameter p : md.getParameters()) {
+                        if (!p.getType().asString().equals("String")) {
 
-                    CommonEdge e = new CommonEdge(td.getName().asString(), p.getType().asString());
-                    if (!hashSetParameters.contains(e))
-                        hashSetParameters.add(e);
+
+                            CommonEdge e = new CommonEdge(td.getName().asString(), p.getType().asString());
+                            if (!hashSetParameters.contains(e))
+                                hashSetParameters.add(e);
+                        }
+
+                    }
                 }
             }
         }
