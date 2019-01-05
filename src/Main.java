@@ -23,7 +23,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        File file = new File(".\\out\\production\\Parser\\uml-parser-test-3");
+        File file = new File(".\\out\\production\\Parser\\uml-parser-test-4");
 
         File a[] = file.listFiles();
         String b = "";
@@ -49,7 +49,8 @@ public class Main {
 
 
                     //am += md.getType() + " : " + md.getName().asString() + "()";
-                    b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + accessMethods(cu.getTypes().get(0).getMethods()) + " } " + "\n";
+                    //b += ((ClassOrInterfaceDeclaration) cu.getTypes().get(0)).getConstructors();
+                    b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + accessMethods(cu.getTypes().get(0).getMethods()) + accessContructor(((ClassOrInterfaceDeclaration) cu.getTypes().get(0)).getConstructors()) + " } " + "\n";
                 } else {
                     b += "interface " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
 
@@ -59,10 +60,26 @@ public class Main {
         generateUML(b);
     }
 
+    private static String accessContructor(List<ConstructorDeclaration> cd) {
+        String string = "";
+
+        for (ConstructorDeclaration cc : cd) {
+
+                string +=  cc.getName().asString() + "()\n";
+            }
+
+        return string;
+    }
+
     private static String accessMethods(List<MethodDeclaration> md) {
         String string = "";
+
         for (MethodDeclaration mm : md) {
+
             if (!(mm.getName().asString().startsWith("set")) && !(mm.getName().asString().startsWith("get"))) {
+                if(mm.getName().asString().equals(mm.getClass().getName())){
+                    System.out.println("Hey");
+                }
                 string += mm.getType() + " : " + mm.getName().asString() + "()\n";
             }
         }
