@@ -63,11 +63,27 @@ public class Main {
     private static String accessContructor(List<ConstructorDeclaration> cd) {
         String string = "";
 
+
+
         for (ConstructorDeclaration cc : cd) {
 
-                string +=  cc.getName().asString() + "()\n";
-            }
+            string += cc.getName().asString() + "(";
 
+            if (!cc.getParameters().isEmpty()) {
+
+                for (Parameter p : cc.getParameters()) {
+                    if (!p.getType().asString().equals("String")) {
+
+                        string += p.getType() + " : " + p.getName().asString() + ")\n";
+
+                    }
+
+
+                }
+            }else {
+                string += ")\n";
+            }
+        }
         return string;
     }
 
@@ -77,7 +93,7 @@ public class Main {
         for (MethodDeclaration mm : md) {
 
             if (!(mm.getName().asString().startsWith("set")) && !(mm.getName().asString().startsWith("get"))) {
-                if(mm.getName().asString().equals(mm.getClass().getName())){
+                if (mm.getName().asString().equals(mm.getClass().getName())) {
                     System.out.println("Hey");
                 }
                 string += mm.getType() + " : " + mm.getName().asString() + "()\n";
