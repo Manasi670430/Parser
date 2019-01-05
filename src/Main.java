@@ -23,7 +23,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        File file = new File(".\\out\\production\\Parser\\uml-parser-test-4");
+        File file = new File(".\\out\\production\\Parser\\uml-parser-test-5");
 
         File a[] = file.listFiles();
         String b = "";
@@ -52,8 +52,7 @@ public class Main {
                     //b += ((ClassOrInterfaceDeclaration) cu.getTypes().get(0)).getConstructors();
                     b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + accessMethods(cu.getTypes().get(0).getMethods()) + accessContructor(((ClassOrInterfaceDeclaration) cu.getTypes().get(0)).getConstructors()) + " } " + "\n";
                 } else {
-                    b += "interface " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
-
+                    b += "interface " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + accessMethods(cu.getTypes().get(0).getMethods())+ " } " + "\n";
                 }
             }
         }
@@ -168,7 +167,7 @@ public class Main {
 
                     if (!md.getParameters().isEmpty()) {
                         for (Parameter p : md.getParameters()) {
-                            if (!p.getType().asString().equals("String")) {
+                            if ((!p.getType().asString().equals("String")) && (!p.getType().asString().equals("String[]"))) {
 
 
                                 CommonEdge e = new CommonEdge(td.getName().asString(), p.getType().asString());
