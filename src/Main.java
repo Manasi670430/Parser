@@ -48,7 +48,8 @@ public class Main {
                     }
 
 
-                    b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
+                    //am += md.getType() + " : " + md.getName().asString() + "()";
+                    b += "class " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + accessMethods(cu.getTypes().get(0).getMethods()) + " } " + "\n";
                 } else {
                     b += "interface " + cu.getTypes().get(0).getName() + " { " + "\n" + accessMembers(cu.getTypes().get(0)) + " } " + "\n";
 
@@ -58,6 +59,15 @@ public class Main {
         generateUML(b);
     }
 
+    private static String accessMethods(List<MethodDeclaration> md) {
+        String string = "";
+        for (MethodDeclaration mm : md) {
+            if (!(mm.getName().asString().startsWith("set")) && !(mm.getName().asString().startsWith("get"))) {
+                string += mm.getType() + " : " + mm.getName().asString() + "()\n";
+            }
+        }
+        return string;
+    }
 
     private static String accessMembers(TypeDeclaration td) {
         String am = "";
@@ -90,6 +100,8 @@ public class Main {
                             am += "[]";
                         }
 
+//                        if(md.getName().asString().startsWith("set"))
+//                        am += "saaa";
                         am += "\n";
                     }
 
@@ -118,17 +130,21 @@ public class Main {
                 MethodDeclaration md = (MethodDeclaration) m;
 
                 //Type t = md.getParameters().get(0).getType();
-
-                if (!md.getParameters().isEmpty()) {
-                    for (Parameter p : md.getParameters()) {
-                        if (!p.getType().asString().equals("String")) {
+                if (!(md.getName().asString().startsWith("set")) && !(md.getName().asString().startsWith("get"))) {
 
 
-                            CommonEdge e = new CommonEdge(td.getName().asString(), p.getType().asString());
-                            if (!hashSetParameters.contains(e))
-                                hashSetParameters.add(e);
+                    if (!md.getParameters().isEmpty()) {
+                        for (Parameter p : md.getParameters()) {
+                            if (!p.getType().asString().equals("String")) {
+
+
+                                CommonEdge e = new CommonEdge(td.getName().asString(), p.getType().asString());
+                                if (!hashSetParameters.contains(e))
+                                    hashSetParameters.add(e);
+                            }
+
+
                         }
-
                     }
                 }
             }
@@ -173,10 +189,7 @@ public class Main {
         //                "class C {\n" +
         //                "}\n" +
         //                "@enduml";
-        //
         //        System.out.println(b);
-
-
         //        String source = "@startuml\n";
         //        source += "class ClassA {\n" +
         //            source +=   "\tint id\n " +
@@ -203,6 +216,5 @@ public class Main {
         // Write the first image to "png"
         String desc = reader.outputImage(png).getDescription();
     }
-
 }
 
